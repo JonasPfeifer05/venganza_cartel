@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://22kw5o47mibn"]
+
+[ext_resource type="Texture2D" uid="uid://cnu55xlyqk0uq" path="res://sprites/weed/weed.png" id="1_04vrx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_04vrx"]
+radius = 8.0
+height = 28.0
+
+[node name="StaticBody2D" type="StaticBody2D"]
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
+texture = ExtResource("1_04vrx")
+offset = Vector2(-0.5, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -13.99)
+shape = SubResource("CapsuleShape2D_04vrx")
+disabled = true
