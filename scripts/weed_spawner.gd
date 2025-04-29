@@ -6,10 +6,9 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-
 	for i in 6:
 		var weed: Weed = weedScene.instantiate()
-		weed.grid_position =  Vector2i(-3+i,-3)
+		weed.grid_position = Vector2i(-3+i,-3)
 		
 		weedParentNode.add_child.call_deferred(weed)
 		

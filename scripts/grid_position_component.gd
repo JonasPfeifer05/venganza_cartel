@@ -2,11 +2,10 @@ extends Node
 class_name GridPositionComponent
 
 @export var moveable: Node2D
-
-var grid_position: Vector2i
-
 @export var random_offset: float = 0
 @export var grid_size: int = 16;
+
+var grid_position: Vector2i
 
 func updateLocation(): 
 	var world_position: Vector2 = (Vector2(grid_position) + Vector2(0.5,0.5)) * grid_size
