@@ -147,11 +147,13 @@ animations = [{
 }]
 
 [node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
+y_sort_enabled = true
 script = ExtResource("1_g2els")
 sprite = NodePath("Smoothing2D/AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1.43)
+visible = false
+position = Vector2(0, -14)
 shape = SubResource("CapsuleShape2D_v6fml")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -159,9 +161,12 @@ position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
 [node name="Smoothing2D" type="Node2D" parent="."]
+y_sort_enabled = true
 script = ExtResource("6_fjrip")
 metadata/_custom_type_script = "uid://bcvnk2bvqxlvk"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Smoothing2D"]
+y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_3vyb7")
 animation = &"player_idle"
+offset = Vector2(0, -16)
