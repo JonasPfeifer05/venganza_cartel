@@ -12,7 +12,7 @@ y_sort_enabled = true
 [node name="Sprite2D" type="Sprite2D" parent="."]
 y_sort_enabled = true
 texture = ExtResource("1_04vrx")
-offset = Vector2(-0.5, -13)
+offset = Vector2(-0.5, -11)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
