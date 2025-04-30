@@ -1,16 +1,17 @@
 [gd_scene load_steps=5 format=3 uid="uid://c87j6nr0sn4lv"]
 
 [ext_resource type="Texture2D" uid="uid://cnu55xlyqk0uq" path="res://sprites/weed/weed.png" id="1_04vrx"]
-[ext_resource type="Script" path="res://scripts/weed.gd" id="1_egm0q"]
+[ext_resource type="Script" uid="uid://be2mbfp7ynh67" path="res://scripts/weed.gd" id="1_egm0q"]
 [ext_resource type="PackedScene" uid="uid://cinvap6hb12bc" path="res://scenes/grid_position_component.tscn" id="2_egm0q"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_04vrx"]
 radius = 8.0
 height = 28.0
 
-[node name="Weed" type="StaticBody2D"]
+[node name="Weed" type="StaticBody2D" node_paths=PackedStringArray("sprite")]
 y_sort_enabled = true
 script = ExtResource("1_egm0q")
+sprite = NodePath("Sprite2D")
 
 [node name="GridPositionComponent" parent="." node_paths=PackedStringArray("moveable") instance=ExtResource("2_egm0q")]
 moveable = NodePath("..")
