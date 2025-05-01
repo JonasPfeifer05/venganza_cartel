@@ -1,20 +1,17 @@
 extends Node2D
 class_name Weed
 
-@onready var weedSprite = preload("res://sprites/weed/weed.png")
-@onready var weedGrownSprite = preload("res://sprites/weed/weed_grown.png")
-
 @onready var gridPositionComponent: GridPositionComponent = $GridPositionComponent
-@export var sprite: Sprite2D
+@export var sprite: AnimatedSprite2D
 
 @export var is_grown: bool = false:
 	set(value):
 		is_grown = value
 		if sprite:
 			if value:
-				sprite.texture = weedGrownSprite
+				sprite.play("100_percent")
 			else:
-				sprite.texture = weedSprite
+				sprite.play("0_percent")
 		
 @export var grid_position: Vector2i:
 	set(value):
@@ -27,7 +24,8 @@ func _ready() -> void:
 	gridPositionComponent.grid_position = grid_position
 	gridPositionComponent.updateLocation()
 	
-	if is_grown:
-		sprite.texture = weedGrownSprite
-	else:
-		sprite.texture = weedSprite
+	if sprite:
+		if is_grown:
+			sprite.play("100_percent")
+		else:
+			sprite.play("0_percent")

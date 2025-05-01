@@ -23,3 +23,8 @@ func _physics_process(_delta: float) -> void:
 		sprite.play("player_walk_up")
 	elif direction.y > 0:
 		sprite.play("player_walk_down")
+
+
+func _on_collectable_component_entered_collectable(collectable:CollectableComponent) -> void:
+	print("Player touched: " + collectable.get_parent().name)
+	collectable.play_pickup_sound()

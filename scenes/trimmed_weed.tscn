@@ -1,16 +1,37 @@
-[gd_scene load_steps=3 format=3 uid="uid://die6qkngtl036"]
+[gd_scene load_steps=7 format=3 uid="uid://die6qkngtl036"]
 
+[ext_resource type="Script" uid="uid://7t6cd4h7vlwf" path="res://scenes/trimmed_weed.gd" id="1_1uddo"]
 [ext_resource type="Texture2D" uid="uid://b61kxu82b0pkj" path="res://sprites/weed/trimmed_weed.png" id="1_2ybul"]
+[ext_resource type="PackedScene" uid="uid://nlhuj8iolmdg" path="res://scenes/collectable_component.tscn" id="2_mlx0c"]
+[ext_resource type="AudioStream" uid="uid://dk5ft1a7mynv" path="res://audio/pickup.mp3" id="4_dwhnn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mlx0c"]
+radius = 1.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mlx0c"]
-radius = 5.0
+radius = 4.0
+height = 26.0
 
 [node name="TrimmedWeed" type="Area2D"]
+script = ExtResource("1_1uddo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_mlx0c")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_2ybul")
 offset = Vector2(-0.5, -14)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -15)
+[node name="CollectableComponent" parent="." node_paths=PackedStringArray("collectSound") instance=ExtResource("2_mlx0c")]
+collectSound = NodePath("../PickupSound")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
+position = Vector2(0, -13)
 shape = SubResource("CapsuleShape2D_mlx0c")
+
+[node name="PickupSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_dwhnn")
+volume_db = 24.0
+
+[connection signal="entered_collectable" from="CollectableComponent" to="." method="_on_collectable_component_entered_collectable"]
+[connection signal="entered_collectable" from="CollectableComponent" to="." method="_on_entered_collectable"]
