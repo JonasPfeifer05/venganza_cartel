@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://csh7wdge57n6h"]
+[gd_scene load_steps=28 format=3 uid="uid://csh7wdge57n6h"]
 
 [ext_resource type="Script" uid="uid://dbx7gwfr2mm7w" path="res://scripts/player_movement.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://ccnjpr5maow8d" path="res://sprites/player/player-idle.png" id="2_tuyoq"]
@@ -150,6 +150,20 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_fjrip"]
 radius = 5.0
 
+[sub_resource type="GDScript" id="GDScript_fjrip"]
+script/source = "extends Node
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
 [node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
 y_sort_enabled = true
 script = ExtResource("1_g2els")
@@ -181,5 +195,8 @@ player = true
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="CollectableComponent"]
 position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_fjrip")
+
+[node name="InventoryComponent" type="Node" parent="."]
+script = SubResource("GDScript_fjrip")
 
 [connection signal="entered_collectable" from="CollectableComponent" to="." method="_on_collectable_component_entered_collectable"]
