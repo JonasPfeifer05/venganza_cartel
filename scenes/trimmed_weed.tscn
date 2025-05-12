@@ -12,11 +12,13 @@ radius = 1.0
 radius = 3.0
 
 [node name="TrimmedWeed" type="Area2D"]
+y_sort_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_mlx0c")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
 texture = ExtResource("1_2ybul")
 offset = Vector2(-0.5, -14)
 

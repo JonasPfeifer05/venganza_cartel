@@ -53,7 +53,6 @@ disabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
-position = Vector2(0, -13)
 sprite_frames = SubResource("SpriteFrames_0aw23")
-animation = &"100_percent"
-frame_progress = 0.0372121
+animation = &"0_percent"
+offset = Vector2(0, -15.45)
