@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://c87j6nr0sn4lv"]
 
 [ext_resource type="Texture2D" uid="uid://cnu55xlyqk0uq" path="res://sprites/weed/weed.png" id="1_04vrx"]
-[ext_resource type="Script" uid="uid://be2mbfp7ynh67" path="res://scripts/weed.gd" id="1_egm0q"]
-[ext_resource type="PackedScene" uid="uid://cinvap6hb12bc" path="res://scenes/grid_position_component.tscn" id="2_egm0q"]
+[ext_resource type="Script" uid="uid://be2mbfp7ynh67" path="res://scripts/weed/weed.gd" id="1_egm0q"]
+[ext_resource type="PackedScene" uid="uid://cinvap6hb12bc" path="res://scenes/components/grid_position_component.tscn" id="2_egm0q"]
 [ext_resource type="Texture2D" uid="uid://dva5btm7kqdav" path="res://sprites/weed/weed_grown.png" id="4_uqta8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_04vrx"]

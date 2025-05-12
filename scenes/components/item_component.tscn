@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://jfpnjl3vkl6a"]
+
+[ext_resource type="Script" uid="uid://bmh5yu2db0423" path="res://scripts/components/item_component.gd" id="1_7nbs7"]
+
+[node name="ItemComponent" type="Area2D"]
+script = ExtResource("1_7nbs7")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -1,20 +1,17 @@
 [gd_scene load_steps=7 format=3 uid="uid://die6qkngtl036"]
 
 [ext_resource type="Texture2D" uid="uid://b61kxu82b0pkj" path="res://sprites/weed/trimmed_weed.png" id="1_2ybul"]
-[ext_resource type="Script" path="res://scripts/trimmed_weed.gd" id="1_dwhnn"]
-[ext_resource type="PackedScene" uid="uid://nlhuj8iolmdg" path="res://scenes/collectable_component.tscn" id="2_mlx0c"]
-[ext_resource type="AudioStream" uid="uid://dk5ft1a7mynv" path="res://audio/pickup.mp3" id="4_dwhnn"]
+[ext_resource type="PackedScene" uid="uid://jfpnjl3vkl6a" path="res://scenes/components/item_component.tscn" id="3_1uddo"]
+[ext_resource type="AudioStream" uid="uid://dk5ft1a7mynv" path="res://audio/pickup.mp3" id="3_dwhnn"]
+[ext_resource type="Resource" uid="uid://c8kw5uet3v5cl" path="res://resources/items/instances/trimmed_weed.tres" id="4_dwhnn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mlx0c"]
 radius = 1.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mlx0c"]
-radius = 4.0
-height = 26.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_dwhnn"]
+radius = 3.0
 
-[node name="TrimmedWeed" type="Area2D" node_paths=PackedStringArray("collectableComponent")]
-script = ExtResource("1_dwhnn")
-collectableComponent = NodePath("CollectableComponent")
+[node name="TrimmedWeed" type="Area2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_mlx0c")
@@ -23,18 +20,14 @@ shape = SubResource("CircleShape2D_mlx0c")
 texture = ExtResource("1_2ybul")
 offset = Vector2(-0.5, -14)
 
-[node name="CollectableComponent" parent="." instance=ExtResource("2_mlx0c")]
-priority = 1
+[node name="ItemComponent" parent="." node_paths=PackedStringArray("on_pickup_destroy_node") instance=ExtResource("3_1uddo")]
+on_pickup_destroy_node = NodePath("..")
+pickup_audio_stream = ExtResource("3_dwhnn")
+item = ExtResource("4_dwhnn")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
-position = Vector2(0, -13)
-shape = SubResource("CapsuleShape2D_mlx0c")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemComponent"]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_dwhnn")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CollectableComponent"]
-scale = Vector2(0.998058, 1)
-stream = ExtResource("4_dwhnn")
-volume_db = 24.0
-parameters/looping = false
-
-[connection signal="entered_collectable" from="CollectableComponent" to="." method="_on_collectable_component_entered_collectable"]
-[connection signal="entered_collectable" from="CollectableComponent" to="." method="_on_entered_collectable"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="ItemComponent"]
+stream = ExtResource("3_dwhnn")

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://csh7wdge57n6h" path="res://scenes/player.tscn" id="1_kyfjp"]
 [ext_resource type="PackedScene" uid="uid://die6qkngtl036" path="res://scenes/trimmed_weed.tscn" id="1_umbte"]
 [ext_resource type="Texture2D" uid="uid://cdeqo65lds72y" path="res://sprites/tiles/world_tiles.png" id="2_amxg5"]
-[ext_resource type="Script" uid="uid://bg30jwejlvhe2" path="res://scripts/weed_spawner.gd" id="5_ynswa"]
+[ext_resource type="Script" uid="uid://bg30jwejlvhe2" path="res://scripts/weed/weed_spawner.gd" id="5_ynswa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3263u"]
 texture = ExtResource("2_amxg5")

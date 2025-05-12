@@ -1,6 +1,6 @@
 extends Node
 
-@onready var weedScene: PackedScene = preload("../scenes/weed.tscn")
+@onready var weedScene: PackedScene = preload("../../scenes/weed.tscn")
 
 @export var weedParentNode: Node
 
