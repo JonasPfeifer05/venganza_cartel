@@ -1,9 +1,11 @@
 extends Node
 
-signal inventory_changed(inventory: Dictionary[ItemType.Variant, int])
+signal inventory_content_changed(inventory: Dictionary[ItemType.Variant, int])
+signal inventory_visibility_changed(visible: bool)
 
 var inventory: Dictionary[ItemType.Variant, int] = {}
 const inventory_size: int = 10
+var visible: bool = false
 
 func add_item(item_data: ItemData):
 	if inventory.size() == inventory_size && !inventory.has(item_data.type):
@@ -14,7 +16,7 @@ func add_item(item_data: ItemData):
 	
 	var previous_amount = inventory.get_or_add(item_data.type, 0)
 	inventory.set(item_data.type, previous_amount + item_data.amount)
-	inventory_changed.emit(inventory)
+	inventory_content_changed.emit(inventory)
 
 func remove_item(item_data: ItemData):
 	if item_data.amount <= 0:
@@ -26,5 +28,9 @@ func remove_item(item_data: ItemData):
 	elif item_data.amount < previous_amount:
 		inventory.set(item_data.type, previous_amount - item_data.amount)
 	
-	inventory_changed.emit(inventory)
+	inventory_content_changed.emit(inventory)
 
+func set_visible(new_visible: bool):
+	visible = new_visible
+	inventory_visibility_changed.emit(visible)
+	

@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjqvi7ri72qo6"]
+
+[ext_resource type="Texture2D" uid="uid://bn50opjoo4qnx" path="res://sprites/inventory/inventory.png" id="1_tahbm"]
+[ext_resource type="Script" uid="uid://yru6lesqcvl6" path="res://scripts/inventory_ui.gd" id="1_ylkvr"]
+
+[node name="InventoryUI" type="Control"]
+z_index = 4
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ylkvr")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(3.85, 0)
+layout_mode = 0
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+texture = ExtResource("1_tahbm")
