@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bobdw4o2d1muh"]
+
+[ext_resource type="Script" uid="uid://cab648nf5bd0" path="res://scripts/components/collector_component.gd" id="1_gl2aq"]
+
+[node name="CollectorComponent" type="Area2D"]
+script = ExtResource("1_gl2aq")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

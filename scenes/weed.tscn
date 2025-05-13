@@ -1,28 +1,58 @@
-[gd_scene load_steps=5 format=3 uid="uid://c87j6nr0sn4lv"]
+[gd_scene load_steps=9 format=3 uid="uid://c87j6nr0sn4lv"]
 
 [ext_resource type="Texture2D" uid="uid://cnu55xlyqk0uq" path="res://sprites/weed/weed.png" id="1_04vrx"]
-[ext_resource type="Script" path="res://scripts/weed.gd" id="1_egm0q"]
-[ext_resource type="PackedScene" uid="uid://cinvap6hb12bc" path="res://scenes/grid_position_component.tscn" id="2_egm0q"]
+[ext_resource type="Script" uid="uid://be2mbfp7ynh67" path="res://scripts/weed/weed.gd" id="1_egm0q"]
+[ext_resource type="PackedScene" uid="uid://cinvap6hb12bc" path="res://scenes/components/grid_position_component.tscn" id="2_egm0q"]
+[ext_resource type="Texture2D" uid="uid://dva5btm7kqdav" path="res://sprites/weed/weed_grown.png" id="4_uqta8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_04vrx"]
 radius = 8.0
 height = 28.0
 
-[node name="Weed" type="StaticBody2D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_cr2hq"]
+atlas = ExtResource("1_04vrx")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7h1sb"]
+atlas = ExtResource("4_uqta8")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0aw23"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cr2hq")
+}],
+"loop": true,
+"name": &"0_percent",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7h1sb")
+}],
+"loop": true,
+"name": &"100_percent",
+"speed": 0.0
+}]
+
+[node name="Weed" type="StaticBody2D" node_paths=PackedStringArray("sprite")]
 y_sort_enabled = true
 script = ExtResource("1_egm0q")
+sprite = NodePath("AnimatedSprite2D")
 
 [node name="GridPositionComponent" parent="." node_paths=PackedStringArray("moveable") instance=ExtResource("2_egm0q")]
 moveable = NodePath("..")
 random_offset = 0.2
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-y_sort_enabled = true
-texture = ExtResource("1_04vrx")
-offset = Vector2(-0.5, -11)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2(0, -13.99)
 shape = SubResource("CapsuleShape2D_04vrx")
 disabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+sprite_frames = SubResource("SpriteFrames_0aw23")
+animation = &"0_percent"
+offset = Vector2(0, -15.45)

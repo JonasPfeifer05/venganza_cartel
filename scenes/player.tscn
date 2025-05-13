@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://csh7wdge57n6h"]
+[gd_scene load_steps=27 format=3 uid="uid://csh7wdge57n6h"]
 
 [ext_resource type="Script" uid="uid://dbx7gwfr2mm7w" path="res://scripts/player_movement.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://ccnjpr5maow8d" path="res://sprites/player/player-idle.png" id="2_tuyoq"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://chc3p8rrhjj5n" path="res://sprites/player/player-walk-horizontal.png" id="4_qlg0r"]
 [ext_resource type="Script" uid="uid://bcvnk2bvqxlvk" path="res://addons/smoothing/smoothing_2d.gd" id="6_fjrip"]
 [ext_resource type="Texture2D" uid="uid://cltbutu338w44" path="res://sprites/player/player-walk-up.png" id="6_tuyoq"]
+[ext_resource type="PackedScene" uid="uid://bobdw4o2d1muh" path="res://scenes/components/collector_component.tscn" id="8_smehm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v6fml"]
 radius = 5.0
@@ -146,6 +147,9 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_smehm"]
+radius = 6.08276
+
 [node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
 y_sort_enabled = true
 script = ExtResource("1_g2els")
@@ -170,3 +174,9 @@ y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_3vyb7")
 animation = &"player_idle"
 offset = Vector2(0, -16)
+
+[node name="CollectorComponent" parent="." instance=ExtResource("8_smehm")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectorComponent"]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_smehm")
