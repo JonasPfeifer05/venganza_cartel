@@ -11,6 +11,15 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_ylkvr")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -2000.0
+offset_top = -2000.0
+offset_right = -1960.0
+offset_bottom = -1960.0
+scale = Vector2(100, 100)
+color = Color(0.81, 0.81, 0.81, 0.239216)
+
 [node name="TextureRect" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(3.85, 0)
 layout_mode = 0
