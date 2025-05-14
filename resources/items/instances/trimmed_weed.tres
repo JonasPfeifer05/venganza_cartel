@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3 uid="uid://c8kw5uet3v5cl"]
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://yvaep0anbscn"]
 
-[ext_resource type="Script" uid="uid://so0n3rxcvf5t" path="res://resources/items/item.gd" id="1_3mxlc"]
+[ext_resource type="Script" uid="uid://8umeeqrcov" path="res://resources/items/item.gd" id="1_3mxlc"]
+[ext_resource type="Texture2D" uid="uid://bprj2sfvmsmer" path="res://sprites/inventory/icons/trimmed_weed_icon.png" id="2_dk4xg"]
 
 [resource]
 script = ExtResource("1_3mxlc")
 type = 0
-amount = 1
-metadata/_custom_type_script = "uid://so0n3rxcvf5t"
+texture = ExtResource("2_dk4xg")
+metadata/_custom_type_script = "uid://8umeeqrcov"

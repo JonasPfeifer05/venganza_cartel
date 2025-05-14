@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://cgpkmvqjiiwo7"]
+
+[ext_resource type="Script" uid="uid://8umeeqrcov" path="res://resources/items/item.gd" id="1_vtenl"]
+[ext_resource type="Texture2D" uid="uid://bvpnnryxqcfxx" path="res://sprites/inventory/icons/weed_seeds_icon.png" id="2_hcd67"]
+
+[resource]
+script = ExtResource("1_vtenl")
+type = 0
+texture = ExtResource("2_hcd67")
+metadata/_custom_type_script = "uid://8umeeqrcov"

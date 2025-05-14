@@ -1,5 +1,5 @@
-class_name ItemData
 extends Resource
+class_name Item
 
 @export var type: ItemType.Variant
-@export var amount: int
+@export var texture: Texture2D
