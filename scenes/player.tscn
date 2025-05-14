@@ -166,6 +166,7 @@ position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
 [node name="InventoryUI" parent="Camera2D" instance=ExtResource("2_smehm")]
+visible = false
 
 [node name="Smoothing2D" type="Node2D" parent="."]
 y_sort_enabled = true

@@ -3,7 +3,8 @@ class_name ItemComponent
 
 @export var on_pickup_destroy_node: Node
 @export var pickup_audio_stream: AudioStream
-@export var item: ItemData
+@export var item: Item
+@export var amount: int
 
 
 func _on_area_entered(_collector: CollectorComponent) -> void:

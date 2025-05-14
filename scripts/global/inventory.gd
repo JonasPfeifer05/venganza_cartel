@@ -1,32 +1,39 @@
 extends Node
 
-signal inventory_content_changed(inventory: Dictionary[ItemType.Variant, int])
+signal inventory_content_changed(inventory: Dictionary[Item, int])
 signal inventory_visibility_changed(visible: bool)
 
-var inventory: Dictionary[ItemType.Variant, int] = {}
-const inventory_size: int = 10
+var inventory: Dictionary[Item, int] = {}
+const inventory_size: int = 9
 var visible: bool = false
 
-func add_item(item_data: ItemData):
-	if inventory.size() == inventory_size && !inventory.has(item_data.type):
+func add_item(item_data: ItemComponent):
+	print("Add item")
+	var amount = item_data.amount;
+	var item = item_data.item;
+	
+	if inventory.size() == inventory_size && !inventory.has(item):
 		return
 	
-	if item_data.amount <= 0:
+	if amount <= 0:
 		return
 	
-	var previous_amount = inventory.get_or_add(item_data.type, 0)
-	inventory.set(item_data.type, previous_amount + item_data.amount)
+	var previous_amount = inventory.get_or_add(item, 0)
+	inventory.set(item, previous_amount + amount)
 	inventory_content_changed.emit(inventory)
 
-func remove_item(item_data: ItemData):
-	if item_data.amount <= 0:
+func remove_item(item_data: ItemComponent):
+	var amount = item_data.amount;
+	var item = item_data.item;
+		
+	if amount <= 0:
 		return
 	
-	var previous_amount = inventory.get_or_add(item_data.type, 0)
-	if item_data.amount == previous_amount:
-		inventory.erase(item_data.type)
-	elif item_data.amount < previous_amount:
-		inventory.set(item_data.type, previous_amount - item_data.amount)
+	var previous_amount = inventory.get_or_add(item, 0)
+	if amount == previous_amount:
+		inventory.erase(item)
+	elif amount < previous_amount:
+		inventory.set(item, previous_amount - amount)
 	
 	inventory_content_changed.emit(inventory)
 

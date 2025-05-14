@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bh6ob40oa5cqb"
-path="res://.godot/imported/inventory.png-db5f90e6c36d998d2a441caab9326371.ctex"
+uid="uid://bprj2sfvmsmer"
+path="res://.godot/imported/trimmed_weed_icon.png-a7046ea5f645498a50d981c471b339c6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/inventory/inventory.png"
-dest_files=["res://.godot/imported/inventory.png-db5f90e6c36d998d2a441caab9326371.ctex"]
+source_file="res://sprites/inventory/icons/trimmed_weed_icon.png"
+dest_files=["res://.godot/imported/trimmed_weed_icon.png-a7046ea5f645498a50d981c471b339c6.ctex"]
 
 [params]
 

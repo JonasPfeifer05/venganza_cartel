@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=4 uid="uid://b57r21x0t85nk"]
+[gd_scene load_steps=8 format=4 uid="uid://b57r21x0t85nk"]
 
 [ext_resource type="PackedScene" uid="uid://csh7wdge57n6h" path="res://scenes/player.tscn" id="1_kyfjp"]
 [ext_resource type="PackedScene" uid="uid://die6qkngtl036" path="res://scenes/trimmed_weed.tscn" id="1_umbte"]
 [ext_resource type="Texture2D" uid="uid://cdeqo65lds72y" path="res://sprites/tiles/world_tiles.png" id="2_amxg5"]
+[ext_resource type="PackedScene" uid="uid://mqk7p6xssfc3" path="res://scenes/weed_seeds.tscn" id="2_ynswa"]
 [ext_resource type="Script" uid="uid://bg30jwejlvhe2" path="res://scripts/weed/weed_spawner.gd" id="5_ynswa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3263u"]
@@ -27,6 +28,9 @@ position = Vector2(-5.65, -26.23)
 [node name="TrimmedWeed3" parent="." instance=ExtResource("1_umbte")]
 position = Vector2(-32.91, -14.55)
 scale = Vector2(0.997077, 1)
+
+[node name="WeedSeeds" parent="." instance=ExtResource("2_ynswa")]
+position = Vector2(-9.36, 15.44)
 
 [node name="Ground" type="TileMapLayer" parent="."]
 z_index = -1
