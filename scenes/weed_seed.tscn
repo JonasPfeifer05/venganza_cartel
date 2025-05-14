@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://d2mb77o50oxss"]
+
+[ext_resource type="Texture2D" uid="uid://bvpnnryxqcfxx" path="res://sprites/inventory/icons/weed_seeds_icon.png" id="1_88r05"]
+[ext_resource type="PackedScene" uid="uid://jfpnjl3vkl6a" path="res://scenes/components/item_component.tscn" id="2_uif7x"]
+[ext_resource type="AudioStream" uid="uid://dk5ft1a7mynv" path="res://audio/pickup.mp3" id="3_ybly0"]
+[ext_resource type="Resource" uid="uid://cgpkmvqjiiwo7" path="res://resources/items/instances/weed_seeds.tres" id="4_0mkos"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_op4fx"]
+radius = 7.0
+
+[node name="WeedSeed" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
+texture = ExtResource("1_88r05")
+
+[node name="ItemComponent" parent="." node_paths=PackedStringArray("on_pickup_destroy_node") instance=ExtResource("2_uif7x")]
+on_pickup_destroy_node = NodePath("..")
+pickup_audio_stream = ExtResource("3_ybly0")
+item = ExtResource("4_0mkos")
+amount = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemComponent"]
+shape = SubResource("CircleShape2D_op4fx")
