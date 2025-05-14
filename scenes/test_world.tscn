@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=4 uid="uid://b57r21x0t85nk"]
+[gd_scene load_steps=9 format=4 uid="uid://b57r21x0t85nk"]
 
+[ext_resource type="PackedScene" uid="uid://c0qkp36psn5qr" path="res://scenes/inventory_ui.tscn" id="1_dvny0"]
 [ext_resource type="PackedScene" uid="uid://csh7wdge57n6h" path="res://scenes/player.tscn" id="1_kyfjp"]
 [ext_resource type="Texture2D" uid="uid://cdeqo65lds72y" path="res://sprites/tiles/world_tiles.png" id="2_amxg5"]
 [ext_resource type="PackedScene" uid="uid://d2mb77o50oxss" path="res://scenes/weed_seed.tscn" id="2_ynswa"]
@@ -20,8 +21,7 @@ sources/0 = SubResource("TileSetAtlasSource_3263u")
 [node name="TestWorld" type="Node2D"]
 y_sort_enabled = true
 
-[node name="WeedSeed" parent="." instance=ExtResource("2_ynswa")]
-position = Vector2(-21.44, 5.57)
+[node name="InventoryUI" parent="." instance=ExtResource("1_dvny0")]
 
 [node name="Ground" type="TileMapLayer" parent="."]
 z_index = -1
@@ -34,6 +34,9 @@ position = Vector2(23, 22)
 [node name="WeedSpawner" type="Node" parent="." node_paths=PackedStringArray("weedParentNode")]
 script = ExtResource("5_ynswa")
 weedParentNode = NodePath("..")
+
+[node name="WeedSeed" parent="." instance=ExtResource("2_ynswa")]
+position = Vector2(-21.44, 5.57)
 
 [node name="TrimmedWeed" parent="." instance=ExtResource("5_dvny0")]
 position = Vector2(-41, -15)

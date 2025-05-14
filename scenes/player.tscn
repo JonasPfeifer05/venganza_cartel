@@ -1,7 +1,6 @@
-[gd_scene load_steps=29 format=3 uid="uid://csh7wdge57n6h"]
+[gd_scene load_steps=28 format=3 uid="uid://csh7wdge57n6h"]
 
 [ext_resource type="Script" uid="uid://dbx7gwfr2mm7w" path="res://scripts/player_movement.gd" id="1_g2els"]
-[ext_resource type="PackedScene" uid="uid://cjqvi7ri72qo6" path="res://scenes/inventory_ui.tscn" id="2_smehm"]
 [ext_resource type="Texture2D" uid="uid://ccnjpr5maow8d" path="res://sprites/player/player-idle.png" id="2_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://bmw8g00e0klal" path="res://sprites/player/player-walk-down.png" id="3_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://chc3p8rrhjj5n" path="res://sprites/player/player-walk-horizontal.png" id="4_qlg0r"]
@@ -165,9 +164,6 @@ shape = SubResource("CapsuleShape2D_v6fml")
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
-
-[node name="InventoryUI" parent="Camera2D" instance=ExtResource("2_smehm")]
-visible = false
 
 [node name="Smoothing2D" type="Node2D" parent="."]
 y_sort_enabled = true

@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 @onready var inventorySlotScene: PackedScene = preload("res://scenes/components/inventory_slot_component.tscn")
 
