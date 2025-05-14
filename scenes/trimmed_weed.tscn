@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dy204adnj6ox7"]
+[gd_scene load_steps=5 format=3 uid="uid://dy204adnj6ox7"]
 
 [ext_resource type="Texture2D" uid="uid://b61kxu82b0pkj" path="res://sprites/weed/trimmed_weed.png" id="1_2ybul"]
 [ext_resource type="PackedScene" uid="uid://jfpnjl3vkl6a" path="res://scenes/components/item_component.tscn" id="3_1uddo"]
-[ext_resource type="AudioStream" uid="uid://dk5ft1a7mynv" path="res://audio/pickup.mp3" id="3_dwhnn"]
 [ext_resource type="Resource" uid="uid://yvaep0anbscn" path="res://resources/items/instances/trimmed_weed.tres" id="4_dwhnn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dwhnn"]
@@ -17,7 +16,6 @@ offset = Vector2(-0.5, -14)
 
 [node name="ItemComponent" parent="." node_paths=PackedStringArray("on_pickup_destroy_node") instance=ExtResource("3_1uddo")]
 on_pickup_destroy_node = NodePath("..")
-pickup_audio_stream = ExtResource("3_dwhnn")
 item = ExtResource("4_dwhnn")
 amount = 1
 
